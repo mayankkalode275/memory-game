@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matching Game with Sound</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- Selection Page -->
+    <div class="selection-page" id="selectionPage">
+        <h1>Welcome to Memory Game</h1>
+        <button onclick="playAsNormal()">Standard Mode</button>
+        <button onclick="playAsDementia()">Adaptive Mode</button>
+        <!-- For Dementia Patients-->
+    </div>
+
+    <!-- Modal for entering player name -->
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h2>Enter Your Name</h2>
+            <input type="text" id="playerNameInput" placeholder="Enter your name" />
+            <button onclick="startGameWithPlayerName()">Start Game</button>
+        </div>
+    </div>
+
+    <!-- Front Page -->
+    <div class="front-page" id="frontPage" style="display: none">
+        <h1>Welcome to the Matching Game!</h1>
+        <button onclick="showNameModal()">Start Game</button>
+        <button onclick="resumeGame()">Resume Game</button>
+        <button onclick="viewHighestScore()">Highest Score</button>
+        <button onclick="viewLevels()">View Levels</button>
+    </div>
+
+    <!-- Game Page -->
+    <div class="game-container" id="gameContainer" style="display: none">
+        <div class="level">Level: 1</div>
+        <div class="score">Score: 0</div>
+        <div class="timer">Time: 0s</div>
+        <div class="grid"></div>
+        <button onclick="restartGame()">Restart Game</button>
+    </div>
+
+    <!-- Level Up Page -->
+    <div class="level-up-page" id="levelUpPage" style="display: none">
+        <h1>Level Up!</h1>
+        <div>
+            Stars Earned: <span class="star" id="levelStarsDisplay">★</span>
+        </div>
+        <button onclick="nextLevel()">Next Level</button>
+        <button onclick="backToGame()">Back to Game</button>
+    </div>
+
+    <!-- Level Overview Page -->
+    <div class="level-table" id="levelTable" style="display: none">
+        <h1>Levels Overview</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Time Taken</th>
+                    <th>Stars Earned</th>
+                </tr>
+            </thead>
+            <tbody id="levelDetails">
+                <!-- Dynamic Level Data Here -->
+            </tbody>
+        </table>
+        <button onclick="backToGame()">Back to Game</button>
+    </div>
+
+    <!-- for dementia patients -->
+    <div class="sequence-game-container" id="blankPage">
+        <div class="sequence-game">
+            <div class="container">
+                <h1>Number Sequence Game</h1>
+                <p id="sequence">Loading...</p>
+                <input type="number" id="userInput" placeholder="Enter your answer" />
+                <button onclick="checkAnswer()">Check Answer</button>
+                <button onclick="generateSequence()">New Sequence</button>
+                <p id="result"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
